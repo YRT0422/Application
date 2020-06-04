@@ -8,7 +8,7 @@ public class Subproject {
     private double sum;
     private double K_value;
     private double expectedPriceFloatedDown;
-    private double biddersAvg;
+    private double biddersAvg = 0;
     private double standardPrice;
     public Subproject(String name,String unit, double amount, double expectedPrice, double K_value) {
         this.name = name;
