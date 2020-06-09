@@ -1,6 +1,6 @@
 package app.model;
-
-public class Subproject {
+import java.io.Serializable;
+public class Subproject implements Serializable {
     private String name;
     private String unit;
     private double amount;

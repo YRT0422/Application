@@ -1,6 +1,7 @@
 package app.model;
 import java.util.ArrayList;
-public class Bidder {
+import java.io.Serializable;
+public class Bidder implements Serializable {
     private String name;
     private ArrayList<Double> priceList;
     public Bidder (String name, ArrayList<Double> priceList ){

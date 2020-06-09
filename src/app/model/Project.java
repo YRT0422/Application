@@ -2,7 +2,8 @@ package app.model;
 
 import java.util.ArrayList;
 
-public class Project {
+import java.io.Serializable;
+public class Project implements Serializable {
     private String name;
     private int K_value;
     private ArrayList<Subproject> subprojects = new ArrayList<Subproject>();
@@ -31,4 +32,7 @@ public class Project {
         }
     }
 
+    public String getName() {
+        return name;
+    }
 }
