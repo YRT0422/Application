@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.manageController">
+   <children>
+      <Button layoutX="256.0" layoutY="60.0" mnemonicParsing="false" text="子项目" onAction="#subprojectButtonOnClicked">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="246.0" layoutY="238.0" mnemonicParsing="false" text="输出表格">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="246.0" layoutY="120.0" mnemonicParsing="false" text="竞标公司" onAction="#biddersButtonOnClicked">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="226.0" layoutY="180.0" mnemonicParsing="false" text="计算竞标结果" onAction="#resultButtonOnClicked">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
