@@ -1,4 +1,4 @@
-package app;
+package app.controller;
 
 public class subprojectController {
 }

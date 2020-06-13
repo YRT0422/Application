@@ -9,8 +9,8 @@ public class ProjectManager implements Serializable {
     public void addProject(Project project){
         manager.add(project);
     }
-    public void deleteProject(Project project){
-        manager.remove(project);
+    public void deleteProject(String projectName){
+        manager.removeIf(project -> project.getName().equals(projectName));
     }
     public ArrayList<String> getNameList(){
         ArrayList<String> nameList = new ArrayList<String>();
