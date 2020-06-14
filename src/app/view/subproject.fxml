@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.subprojectController">
    <children>
       <TableView layoutX="53.0" layoutY="61.0" prefHeight="290.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -20,9 +19,9 @@
             <TableColumn prefWidth="100.0" text="合计" />
         </columns>
       </TableView>
-      <Text layoutX="225.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="子项目列表">
+      <Text layoutX="390.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="子项目列表">
          <font>
-            <Font size="30.0" />
+            <Font size="20.0" />
          </font>
       </Text>
       <TextField layoutY="359.0" promptText="子项目名称" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="410.0" />
@@ -30,10 +29,15 @@
       <TextField layoutX="300.0" layoutY="359.0" promptText="工程量" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="210.0" />
       <TextField layoutX="199.0" layoutY="359.0" promptText="单位" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="311.0" />
       <Button layoutX="503.0" layoutY="359.0" mnemonicParsing="false" text="添加子项目" />
-      <Button layoutX="503.0" layoutY="12.0" mnemonicParsing="false" text="保存">
+      <Button layoutX="503.0" layoutY="12.0" mnemonicParsing="false" text="删除">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <Text fx:id="text" layoutX="47.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

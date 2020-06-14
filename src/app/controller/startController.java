@@ -5,6 +5,7 @@ import app.model.Saver;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,13 +14,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import app.controller.manageController;
+import javafx.stage.WindowEvent;
 
 public class startController implements Initializable {
     public Button manageButton;
@@ -34,6 +39,7 @@ public class startController implements Initializable {
     @FXML
     private Button addButton;
     private String selectedItem = "";
+    private Project selectedProject;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("src/app/drawable/logo.png");
@@ -54,14 +60,31 @@ public class startController implements Initializable {
 
     @FXML
     private void manageButtonOnClicked(){
-        try {
-            Parent newProjectRoot = FXMLLoader.load(getClass().getResource("/app/view/manage.fxml"));
-            Stage newProjectStage = new Stage();
-            newProjectStage.setTitle("管理项目");
-            newProjectStage.setScene(new Scene(newProjectRoot, 600, 400));
-            newProjectStage.show();
-        } catch (Exception e){
-            e.printStackTrace();
+        if(!Objects.equals(selectedItem,"")) {
+            try {
+                selectedProject = projectManager.getProject(selectedItem);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/view/manage.fxml"));
+                Pane mainPane = (Pane) loader.load();
+                manageController controller = loader.<manageController>getController();
+                controller.setProject(selectedProject);
+                Stage newProjectStage = new Stage();
+                newProjectStage.setTitle("管理项目");
+                newProjectStage.setScene(new Scene(mainPane, 600, 400));
+                newProjectStage.show();
+                newProjectStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent event) {
+                        projectManager.updateProject(selectedProject,controller.getProject());
+                        saver.write("projectManager.txt", projectManager);
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Alert a = new Alert(Alert.AlertType.WARNING);
+            a.setContentText("请选择项目");
+            a.show();
         }
 
     }
@@ -107,7 +130,7 @@ public class startController implements Initializable {
 
     }
 
-
-
-
+    public Project getSelectedProject() {
+        return selectedProject;
+    }
 }
